@@ -51,15 +51,19 @@ int main()
 
     //线段可视化
     cv::cvtColor(srcImage,srcImage,CV_GRAY2BGR);
-    cv::line(srcImage,unWarpedLeftLine[0],unWarpedLeftLine[1],cv::Scalar(0,255,0),2);
-    cv::line(srcImage,unWarpedRightLine[0],unWarpedRightLine[1],cv::Scalar(0,255,0),2);
+    //cv::line(srcImage,unWarpedLeftLine[0],unWarpedLeftLine[1],cv::Scalar(0,255,0),2);
+    //cv::line(srcImage,unWarpedRightLine[0],unWarpedRightLine[1],cv::Scalar(0,255,0),2);
 
     cv::cvtColor(birdViewImage,birdViewImage,CV_GRAY2BGR);
-    cv::line(birdViewImage,leftLine[0],leftLine[1],cv::Scalar(0,255,0),2);
-    cv::line(birdViewImage,rightLine[0],rightLine[1],cv::Scalar(0,255,0),2);
+    //cv::line(birdViewImage,leftLine[0],leftLine[1],cv::Scalar(0,255,0),2);
+    //cv::line(birdViewImage,rightLine[0],rightLine[1],cv::Scalar(0,255,0),2);
 
     cv::imshow("srcImage",srcImage);
     cv::imshow("birdViewImage",birdViewImage);
+
+    cv::imwrite("srcImage.jpg",srcImage);
+    cv::imwrite("birdViewImage.jpg",birdViewImage);
+
     cv::waitKey(0);
 
 

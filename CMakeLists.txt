@@ -52,3 +52,6 @@ endif()
 
 add_executable(persectivetransform persectivetransform.cpp)
 target_link_libraries(persectivetransform ${OpenCV_LIBS})
+
+add_executable(morphologicalOperations morphologicalOperations.cpp)
+target_link_libraries(morphologicalOperations ${OpenCV_LIBS})
