@@ -1,7 +1,8 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.10)
 project(MyLearning)
 
 set(CMAKE_CXX_STANDARD 11)
+#set(CMAKE_VERBOSE_MAKEFILE ON)
 
 IF(NOT CMAKE_BUILD_TYPE)
     SET(CMAKE_BUILD_TYPE Release)
@@ -16,6 +17,29 @@ else()
     message("==============程序未采用O3优化=========================")
 endif()
 
+MESSAGE(STATUS "operation system is ${CMAKE_SYSTEM}")
+message("===========CMAKE_CXX_COMPILER:${CMAKE_CXX_COMPILER}")
+message("===========CMAKE_CURRENT_LIST_DIR:${CMAKE_CURRENT_LIST_DIR}")
+
+
+
+
+if (CMAKE_C_COMPILER MATCHES "aarch64")
+    message(STATUS "build for arm-aarch64")
+elseif(CMAKE_C_COMPILER MATCHES "gnueabi-gcc")
+    message(STATUS "build for arm-gnueabi")
+elseif(CMAKE_C_COMPILER MATCHES "gnueabihf")
+    message(STATUS "build for arm-gnueabihf")
+elseif(CMAKE_C_COMPILER MATCHES "x86_64")
+    message(STATUS "build for x86_64")
+else()
+    message(STATUS "build for current host")
+endif()
+
+
+set(LCM_INCLUDE_DIRS /usr/local/include/lcm)
+list(APPEND LCM_LIBRARIES  /usr/local/lib/liblcm.so)
+
 # Check C++11 support
 include(CheckCXXCompilerFlag)
 CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
@@ -27,7 +51,7 @@ else()
     message(FATAL_ERROR "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
 endif()
 
-
+#set(OpenCV_DIR /home/liheng/CLionProjects/opencv-2.4.13.6/share/OpenCV)
 set(OpenCV_DIR /usr/local/opencv4.0.0)
 #set(OpenCV_DIR /usr/share/OpenCV)
 find_package(OpenCV REQUIRED)
@@ -55,3 +79,6 @@ target_link_libraries(persectivetransform ${OpenCV_LIBS})
 
 add_executable(morphologicalOperations morphologicalOperations.cpp)
 target_link_libraries(morphologicalOperations ${OpenCV_LIBS})
+
+add_executable(morphologicalOperations2 morphologicalOperations2.cpp)
+target_link_libraries(morphologicalOperations2 ${OpenCV_LIBS})
