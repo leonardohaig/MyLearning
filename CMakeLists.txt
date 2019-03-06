@@ -82,3 +82,11 @@ target_link_libraries(morphologicalOperations ${OpenCV_LIBS})
 
 add_executable(morphologicalOperations2 morphologicalOperations2.cpp)
 target_link_libraries(morphologicalOperations2 ${OpenCV_LIBS})
+
+
+add_executable(resizeDemo resizeDemo.cpp)
+target_link_libraries(resizeDemo ${OpenCV_LIBS})
+
+
+add_executable(calHistDemo calHistDemo.cpp)
+target_link_libraries(calHistDemo ${OpenCV_LIBS})
