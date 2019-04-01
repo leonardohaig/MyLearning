@@ -90,3 +90,12 @@ target_link_libraries(resizeDemo ${OpenCV_LIBS})
 
 add_executable(calHistDemo calHistDemo.cpp)
 target_link_libraries(calHistDemo ${OpenCV_LIBS})
+
+add_executable(equalizeHistDemo equalizeHistDemo.cpp)
+target_link_libraries(equalizeHistDemo ${OpenCV_LIBS})
+
+add_executable(trackDemo trackDemo.cpp)
+target_link_libraries(trackDemo ${OpenCV_LIBS})
+
+add_executable(addnoise addnoise.cpp)
+target_link_libraries(addnoise ${OpenCV_LIBS})
