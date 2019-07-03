@@ -52,8 +52,9 @@ else()
 endif()
 
 #set(OpenCV_DIR /home/liheng/CLionProjects/opencv-2.4.13.6/share/OpenCV)
-set(OpenCV_DIR /usr/local/opencv4.0.0)
+#set(OpenCV_DIR /usr/local/opencv4.0.0/lib/cmake/opencv4)
 #set(OpenCV_DIR /usr/share/OpenCV)
+set(OpenCV_DIR /usr/local/opencv3.4.1/share/OpenCV)
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
@@ -99,3 +100,7 @@ target_link_libraries(trackDemo ${OpenCV_LIBS})
 
 add_executable(addnoise addnoise.cpp)
 target_link_libraries(addnoise ${OpenCV_LIBS})
+
+
+add_executable(reduceDemo reduceDemo.cpp)
+target_link_libraries(reduceDemo ${OpenCV_LIBS})
