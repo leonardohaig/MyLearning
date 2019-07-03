@@ -51,10 +51,11 @@ else()
     message(FATAL_ERROR "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
 endif()
 
-#set(OpenCV_DIR /home/liheng/CLionProjects/opencv-2.4.13.6/share/OpenCV)
 #set(OpenCV_DIR /usr/local/opencv4.0.0/lib/cmake/opencv4)
 #set(OpenCV_DIR /usr/share/OpenCV)
 set(OpenCV_DIR /usr/local/opencv3.4.1/share/OpenCV)
+#set(OpenCV_DIR "D:\\opencv3.1-minggw\\install")
+
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
@@ -84,6 +85,7 @@ target_link_libraries(morphologicalOperations ${OpenCV_LIBS})
 add_executable(morphologicalOperations2 morphologicalOperations2.cpp)
 target_link_libraries(morphologicalOperations2 ${OpenCV_LIBS})
 
+<<<<<<< HEAD
 
 add_executable(resizeDemo resizeDemo.cpp)
 target_link_libraries(resizeDemo ${OpenCV_LIBS})
@@ -104,3 +106,10 @@ target_link_libraries(addnoise ${OpenCV_LIBS})
 
 add_executable(reduceDemo reduceDemo.cpp)
 target_link_libraries(reduceDemo ${OpenCV_LIBS})
+=======
+add_executable(HoughLinesDemo HoughLinesDemo.cpp)
+target_link_libraries(HoughLinesDemo ${OpenCV_LIBS})
+
+add_executable(HoughLinesPDemo HoughLinesPDemo.cpp)
+target_link_libraries(HoughLinesPDemo ${OpenCV_LIBS})
+>>>>>>> 76b39136c16ed76bd776f4eeb18623f485d2f489
